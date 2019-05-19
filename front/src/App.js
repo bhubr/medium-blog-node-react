@@ -4,7 +4,12 @@ import './App.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
+  state = {
+    name: 'Benoit'
+  }
+
   render() {
+    const { name } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -12,6 +17,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <p>{name}</p>
           <a
             className="App-link"
             href="https://reactjs.org"

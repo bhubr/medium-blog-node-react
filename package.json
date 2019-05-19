@@ -1,0 +1,29 @@
+{
+  "name": "medium-blog-node-react",
+  "version": "1.0.0",
+  "description": "Built with Node.js and React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhubr/medium-blog-node-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhubr/medium-blog-node-react/issues"
+  },
+  "homepage": "https://github.com/bhubr/medium-blog-node-react#readme",
+  "devDependencies": {
+    "husky": "^2.3.0",
+    "lerna": "^3.14.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lerna run --concurrency 1 --stream precommit"
+    }
+  }
+}
