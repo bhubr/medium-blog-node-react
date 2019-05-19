@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `content` TEXT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`, `user_id`),
-  INDEX `fk_post_user_idx` (`user_id` ASC) VISIBLE,
+  -- INDEX `fk_post_user_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_post_user`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
@@ -60,9 +60,9 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `content` VARCHAR(1000) NULL,
   `post_id` INT NOT NULL,
   `user_id` INT NULL,
-  PRIMARY KEY (`id`, `post_id`, `user_id`),
-  INDEX `fk_comment_post1_idx` (`post_id` ASC) VISIBLE,
-  INDEX `fk_comment_user1_idx` (`user_id` ASC) VISIBLE,
+  PRIMARY KEY (`id`),
+  -- INDEX `fk_comment_post1_idx` (`post_id` ASC) VISIBLE,
+  -- INDEX `fk_comment_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_comment_post1`
     FOREIGN KEY (`post_id`)
     REFERENCES `post` (`id`)
@@ -84,8 +84,8 @@ CREATE TABLE IF NOT EXISTS `post_has_category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `category_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_post_has_category_category1_idx` (`category_id` ASC) VISIBLE,
-  INDEX `fk_post_has_category_post1_idx` (`post_id` ASC, `id` ASC) VISIBLE,
+  -- INDEX `fk_post_has_category_category1_idx` (`category_id` ASC) VISIBLE,
+  -- INDEX `fk_post_has_category_post1_idx` (`post_id` ASC, `id` ASC) VISIBLE,
   CONSTRAINT `fk_post_has_category_post1`
     FOREIGN KEY (`post_id` , `id`)
     REFERENCES `post` (`id` , `user_id`)
@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS `user_follows_user` (
   `follower_id` INT NOT NULL,
   `followed_id` INT NOT NULL,
   PRIMARY KEY (`follower_id`, `followed_id`),
-  INDEX `fk_user_has_user_user2_idx` (`followed_id` ASC) VISIBLE,
-  INDEX `fk_user_has_user_user1_idx` (`follower_id` ASC) VISIBLE,
+  -- INDEX `fk_user_has_user_user2_idx` (`followed_id` ASC) VISIBLE,
+  -- INDEX `fk_user_has_user_user1_idx` (`follower_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_has_user_user1`
     FOREIGN KEY (`follower_id`)
     REFERENCES `user` (`id`)

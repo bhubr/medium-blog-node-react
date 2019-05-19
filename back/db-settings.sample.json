@@ -1,0 +1,6 @@
+{
+  "host": "localhost",
+  "database": "my_dabase",
+  "user": "mydbuser",
+  "password": "mydbpass"
+}
